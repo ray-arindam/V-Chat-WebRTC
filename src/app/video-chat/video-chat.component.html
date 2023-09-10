@@ -1,0 +1,38 @@
+<ng-container *ngTemplateOutlet="videoChat
+    context: {
+        streamSubject: streamSubject$ | async
+    }">
+</ng-container>
+<ng-template #videoChat>
+    <div class="frame">
+        <ng-container *ngIf="connectionService?.isCameraOn || connectionService?.isMicOn || this.connectionService.peerConnected; else showProfile">
+            <div class="video-chat">
+                <video id="user1" [srcObject]="localVideo"  [ngClass]="{'full-video': !connectionService.peerConnected , 'pop-window': connectionService.peerConnected }" autoplay playsinline [muted]="'muted'"></video>
+                <video id="user2" [srcObject]="remoteVideo" *ngIf="connectionService.peerConnected" class="full-video" autoplay playsinline></video>
+            </div>
+        </ng-container>
+        <ng-template #showProfile>
+            <div class="profile-pic">
+                <p><i class="bi bi-person-fill"></i></p>
+            </div>
+        </ng-template>
+
+        <div class="call-controls">
+            <div class="icon" (click)="toggleCamera()">
+                <p *ngIf="connectionService?.isCameraOn; else cameraOff"><i class="bi bi-camera-video-fill"></i></p>
+                <ng-template #cameraOff>
+                    <p><i class="bi bi-camera-video-off-fill"></i></p>
+                </ng-template>
+            </div>
+            <div class="icon" (click)="toggleMic()">
+                <p *ngIf="connectionService?.isMicOn; else micOff"><i class="bi bi-mic"></i></p>
+                <ng-template #micOff>
+                    <p><i class="bi bi-mic-mute"></i></p>
+                </ng-template>
+            </div>
+            <div class="icon cross" (click)="disconnect()">
+                <p><i class="bi bi-x"></i></p>
+            </div>
+        </div>
+    </div>
+</ng-template>

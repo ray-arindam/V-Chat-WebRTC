@@ -1,0 +1,82 @@
+.frame {
+    --background-color: #5a6581;
+    background-color: var(--background-color);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    .video-chat {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+
+        .full-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: var(--background-color);
+        }
+
+        .pop-window {
+            width: 22rem;
+            height: 15rem;
+            position: fixed;
+            object-fit: cover;
+            top: 3rem;
+            left: 5rem;
+            border-radius: 1.5rem;
+            border: 0.3rem solid #5959ccfc;
+        }
+    }
+
+    .profile-pic {
+        position: absolute;
+        width: 14rem;
+        height: 14rem;
+        border-radius: 50%;
+        font-size: 10rem;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        background: #f6f6f18a;
+        
+        p {
+            margin: -1rem 0 0 0;
+        }
+    }
+
+    .call-controls {
+        font-size: 2rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .icon {
+            background-color: #30303e;
+            border-radius: 50%;
+            height: 65px;
+            width: 65px;
+            position: relative;
+            color: white;
+
+            p {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                margin: 0;
+            }
+        }
+
+        .cross {
+            background-color: #d12424;
+        }
+    }
+}

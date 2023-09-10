@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 src/environment/environment.prod.ts
+src/app/Webrtc-Ng.code-workspace
