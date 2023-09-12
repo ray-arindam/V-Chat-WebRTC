@@ -144,8 +144,12 @@ export class ConnectionService {
   }
 
   startMedia = async () => {
-    this.localStream = await navigator.mediaDevices.getUserMedia(this.constraints);
-    this.setStreamSubject.next({ type: 'localstream', stream: this.localStream });
+    try {
+      this.localStream = await navigator.mediaDevices.getUserMedia(this.constraints);
+      this.setStreamSubject.next({ type: 'localstream', stream: this.localStream });  
+    } catch(error) {
+      console.log(`Unable to connect to media devices: ${error}`);
+    }
   }
 
   stopMedia = async () => {

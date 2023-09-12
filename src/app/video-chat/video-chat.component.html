@@ -5,16 +5,14 @@
 </ng-container>
 <ng-template #videoChat>
     <div class="frame">
-        <ng-container *ngIf="connectionService?.isCameraOn || connectionService?.isMicOn || this.connectionService.peerConnected; else showProfile">
+        <ng-container *ngIf="connectionService?.isCameraOn; else showProfile">
             <div class="video-chat">
                 <video id="user1" [srcObject]="localVideo"  [ngClass]="{'full-video': !connectionService.peerConnected , 'pop-window': connectionService.peerConnected }" autoplay playsinline [muted]="'muted'"></video>
                 <video id="user2" [srcObject]="remoteVideo" *ngIf="connectionService.peerConnected" class="full-video" autoplay playsinline></video>
             </div>
         </ng-container>
         <ng-template #showProfile>
-            <div class="profile-pic">
-                <p><i class="bi bi-person-fill"></i></p>
-            </div>
+            
         </ng-template>
 
         <div class="call-controls">

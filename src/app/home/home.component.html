@@ -1,10 +1,22 @@
-<div class="main">
-    <h1 class="title">V-Chat</h1>
-    <form [formGroup]="inputForm" class="form">
-        <input type="text" formControlName="input" class="form-control" placeholder="Enter Room Name">
-        <div class="btn-group">
-            <button class="btn btn-dark mr-3" [disabled]="!inputForm.valid" (click)="joinChannel()">Create Room</button>
-            <button class="btn btn-outline-dark ml-3" [disabled]="!inputForm.valid" (click)="joinChannel()">Join Room</button>
-        </div>
-    </form>
-</div>
+<p>
+    <mat-toolbar>
+    <span>VChat</span>
+    </mat-toolbar>
+</p>
+
+<form [formGroup]="inputForm">
+    <mat-card class="meeting-card">
+        <mat-card-content>
+            <button mat-flat-button color="primary" class="start-meeting-btn" (click)="startMeeting()">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="videocam"></mat-icon>
+                Start a meeting
+            </button>
+            <div>
+                <input type="text" class="keyboard-input" placeholder="Join a meeting" formControlName="input">
+                <button mat-button color="primary"	[disabled]="this.inputForm.invalid" (click)="joinChannel()" class="join-meeting-btn">
+                    Join
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
