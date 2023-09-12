@@ -11,6 +11,7 @@
         height: 100%;
 
         .full-video {
+            position: relative;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -20,7 +21,7 @@
         .pop-window {
             width: 22rem;
             height: 15rem;
-            position: fixed;
+            position: relative;
             object-fit: cover;
             top: 3rem;
             left: 5rem;
@@ -31,8 +32,8 @@
 
     .profile-pic {
         position: absolute;
-        width: 14rem;
-        height: 14rem;
+        width: 10rem;
+        height: 10rem;
         border-radius: 50%;
         font-size: 10rem;
         top: 30%;
@@ -42,7 +43,13 @@
         background: #f6f6f18a;
         
         p {
-            margin: -1rem 0 0 0;
+            text-align: center;
+            padding: 1rem;
+            margin: 0;
+
+            i {
+                font-size: 0.8em;
+            }
         }
     }
 

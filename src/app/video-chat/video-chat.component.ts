@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./video-chat.component.scss']
 })
 export class VideoChatComponent implements OnInit, AfterViewInit{
-  localVideo!: any;
-  remoteVideo!: any;
+  localVideo!: MediaStream | null;
+  remoteVideo!: MediaStream | null;
   streamSubject$!: Observable<{ type: string, stream: MediaStream | null }>;
 
   constructor(
@@ -46,5 +46,13 @@ export class VideoChatComponent implements OnInit, AfterViewInit{
   disconnect() {
     this.connectionService.disconnectCall();
     this.router.navigate(['/']);
+  }
+
+  isLocalVideoOn() {
+    this.localVideo?.getVideoTracks()[0]?.enabled;
+  }
+
+  isRemoteVideoOn() {
+    this.remoteVideo?.getVideoTracks()[0]?.enabled;
   }
 }
