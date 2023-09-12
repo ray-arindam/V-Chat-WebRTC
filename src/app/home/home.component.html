@@ -5,15 +5,16 @@
 </p>
 
 <form [formGroup]="inputForm">
-    <mat-card class="meeting-card">
+    <mat-card class="main">
         <mat-card-content>
-            <button mat-flat-button color="primary" class="start-meeting-btn" (click)="startMeeting()">
+            <h1>Create <b>or</b> Join Meeting</h1>
+            <button mat-flat-button color="primary" class="meeting-btn" (click)="startMeeting()">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="videocam"></mat-icon>
                 Start a meeting
             </button>
             <div>
-                <input type="text" class="keyboard-input" placeholder="Join a meeting" formControlName="input">
-                <button mat-button color="primary"	[disabled]="this.inputForm.invalid" (click)="joinChannel()" class="join-meeting-btn">
+                <input type="text" class="keyboard-input" placeholder="Enter channel Id" formControlName="input">
+                <button mat-button color="primary"	[disabled]="this.inputForm.invalid" (click)="joinChannel()" class="join-btn">
                     Join
                 </button>
             </div>

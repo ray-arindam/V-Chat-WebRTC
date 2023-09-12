@@ -1,86 +1,48 @@
-.main {
-    width: 100%;
-    height: 100%;
-
-    .title {
-        color: rgb(0 0 0 / 76%);
-        padding: 10rem;
-        font-size: 5rem;
-        text-align: center;
-    }
-
-    .form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        input {
-            margin-bottom: 1rem;
-            width: 30%;
-        }
-
-        .btn-group {
-            display: flex;
-            width: 30%;
-            justify-content: space-evenly;
-
-            button {
-                width: 45%;
-            }
-        }
-    }
-}
-
-.example-spacer {
-    flex: 1 1 auto;
-}
-
 form {
     display: inline;
-
-    .meeting-card {
-        width: 100%;
-        height: 100%;
+    
+    .main {
         box-shadow: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     
-        mat-card-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-    
-            .start-meeting-btn {
-                justify-content: flex-start;
-                font-size: 1.25rem !important;
-                height: 4rem;
-                border-radius: 0.5rem;
-                width: 75%;
-    
-                mat-icon {
-                    font-size: 1.5rem;
-                    height: 1.125rem;
-                    width: 2rem;
-                    margin-top: -4px;
+        .meeting-btn {
+            padding: 1.25rem 1rem;
+            width: 14rem;
+            font-size: 0.9rem;
+
+            ::ng-deep {
+                .mdc-button__label {
+                    right: 1rem
                 }
             }
-    
-            .keyboard-input {
-                background: url('../../assets/image/keyboard-24px.svg') no-repeat 12px 14px; 
-                padding: 1rem 1rem 1rem 3rem;
-                border: 3px solid #dadce0;
-                border-radius: 0.5rem;
-                font-size: 1.25rem;
-                margin-right: 2rem;
-            }    
-
-            .join-meeting-btn {
-                font-size: 1.25rem;
+            
+            mat-icon {
+                position: absolute;
+                margin: 0;
+                left: 16px;
             }
         }
-    }
-    
+
+        .keyboard-input {
+            background: url('../../assets/image/keyboard-24px.svg') no-repeat 4% 50%;
+            padding: 0.5rem 0 0.5rem 2rem;
+            border: 3px solid #dadce0;
+            border-radius: 0.4rem;
+            width: 14rem;
+            margin-top: 0.5rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .join-btn {
+            @media screen and (max-width: 480px) {
+                margin-top: 0.5rem;
+            }
+            font-size: 0.9rem
+        }
+    }    
 }
 
