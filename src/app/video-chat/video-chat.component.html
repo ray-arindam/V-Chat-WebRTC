@@ -6,23 +6,13 @@
 <ng-template #videoChat>
     <div class="frame">
         <div class="video-chat">
-            <ng-container *ngIf="this.connectionService.isCameraOn; else showProfile;">
-                <div [ngClass]="{'full-video': !connectionService.peerConnected , 'pop-window': connectionService.peerConnected }">
-                    <video id="user1" [srcObject]="localVideo" autoplay playsinline [muted]="'muted'"></video>
-                </div>
-            </ng-container>
-            <ng-container>
-                <div *ngIf="connectionService.peerConnected">
-                    <video id="user2" [srcObject]="remoteVideo" class="full-video" autoplay playsinline></video>
-                </div>
-            </ng-container>
-        </div>
-        <ng-template #showProfile>
-            <div class="profile-pic">
-                <p><i class="bi bi-person-fill"></i></p>
+            <div [ngClass]="{'full-video': !connectionService.peerConnected , 'pop-window': connectionService.peerConnected }">
+                <video id="user1" [srcObject]="localVideo" autoplay playsinline [muted]="'muted'"></video>
             </div>
-        </ng-template>
-
+            <div *ngIf="connectionService.peerConnected" class="full-video">
+                <video id="user2" [srcObject]="remoteVideo" autoplay playsinline></video>
+            </div>
+        </div>
         <div class="call-controls">
             <div class="icon" (click)="toggleCamera()">
                 <p *ngIf="connectionService?.isCameraOn; else cameraOff"><i class="bi bi-camera-video-fill"></i></p>

@@ -2,11 +2,21 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ConnectionService } from '../connection.service';
 import { Observable, tap } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-video-chat',
   templateUrl: './video-chat.component.html',
-  styleUrls: ['./video-chat.component.scss']
+  styleUrls: ['./video-chat.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    CommonModule
+  ]
 })
 export class VideoChatComponent implements OnInit, AfterViewInit{
   localVideo!: MediaStream | null;
